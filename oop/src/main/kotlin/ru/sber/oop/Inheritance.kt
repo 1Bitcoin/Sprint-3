@@ -4,9 +4,11 @@ open class Room(val name: String, val size: Int) {
 
     protected open val dangerLevel = 5
 
+    var enemy: Monster = Goblin()
+
     fun description() = "Room: $name"
 
-    open fun load() = "Nothing much to see here..."
+    open fun load() = enemy.getSalutation()
 
     constructor() : this(name = "Room", size = 100) {
 
