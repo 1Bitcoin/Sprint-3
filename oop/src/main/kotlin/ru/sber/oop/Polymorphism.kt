@@ -1,7 +1,5 @@
 package ru.sber.oop
 
-import kotlin.random.Random
-
 interface Fightable {
     val powerType: String
     var healthPoints: Int
@@ -12,9 +10,7 @@ interface Fightable {
 }
 
 class Player(val name: String, val isBlessed: Boolean): Fightable {
-    override val powerType: String
-        get() = TODO("Not yet implemented")
-
+    override val powerType: String = ""
     override var healthPoints: Int = 100
 
     override fun attack(opponent: Fightable): Int {
@@ -37,12 +33,8 @@ abstract class Monster(val name: String, val description: String): Fightable {
 fun Monster.getSalutation() = "Hello, I'm Monster"
 
 class Goblin(): Monster("Zombie", "Bad boy") {
-    override val powerType: String
-        get() = TODO("Not yet implemented")
-
-    override var healthPoints: Int
-        get() = TODO("Not yet implemented")
-        set(value) { healthPoints = value }
+    override val powerType: String = ""
+    override var healthPoints: Int = 200
 
     override val damageRoll: Int
         get() = super.damageRoll / 2
