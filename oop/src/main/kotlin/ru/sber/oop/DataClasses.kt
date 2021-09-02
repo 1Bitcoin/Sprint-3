@@ -4,7 +4,7 @@ data class User(val name: String, val age: Long) {
     lateinit var city: String
 
     override fun equals(other: Any?): Boolean {
-        if (other !is User) return false
+        if (other == null || other !is User) return false
         var ret = false
 
         if (::city.isInitialized && other::city.isInitialized) {
