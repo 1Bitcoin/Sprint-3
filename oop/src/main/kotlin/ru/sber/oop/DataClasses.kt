@@ -5,10 +5,12 @@ data class User(val name: String, val age: Long) {
 
     override fun equals(other: Any?): Boolean {
         if (other == null || other !is User) return false
-        var ret = false
+        var ret = other.age == age && other.name == name
 
         if (::city.isInitialized && other::city.isInitialized) {
-            ret = other.age == age && other.name == name && other.city == city
+            ret = ret && other.city == city
+        } else {
+            ret = ret && !::city.isInitialized && !other::city.isInitialized
         }
 
         return ret
