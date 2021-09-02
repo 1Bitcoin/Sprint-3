@@ -4,13 +4,13 @@ open class Room(val name: String, val size: Int) {
 
     protected open val dangerLevel = 5
 
-    var enemy: Monster = Goblin()
+    var enemy: Monster = Goblin("Goblin", "bad boy", "agility", 100500)
 
     fun description() = "Room: $name"
 
     open fun load() = enemy.getSalutation()
 
-    constructor() : this(name = "Room", size = 100) {
+    constructor(_name: String) : this(name = _name, size = 100) {
 
     }
 }
