@@ -9,9 +9,8 @@ interface Fightable {
     fun attack(opponent: Fightable): Int
 }
 
-class Player(val name: String, val isBlessed: Boolean) : Fightable {
-    override val powerType: String = ""
-    override var healthPoints: Int = 100
+class Player(val name: String, val isBlessed: Boolean,
+             override val powerType: String, override var healthPoints: Int) : Fightable {
 
     override fun attack(opponent: Fightable): Int {
         var totalDamage = damageRoll
@@ -23,7 +22,10 @@ class Player(val name: String, val isBlessed: Boolean) : Fightable {
     }
 }
 
-abstract class Monster(val name: String, val description: String) : Fightable {
+abstract class Monster() : Fightable {
+    abstract val name: String
+    abstract val description: String
+
     override fun attack(opponent: Fightable): Int {
         opponent.healthPoints -= damageRoll
         return damageRoll
@@ -32,9 +34,8 @@ abstract class Monster(val name: String, val description: String) : Fightable {
 
 fun Monster.getSalutation() = "Hello, I'm Monster"
 
-class Goblin() : Monster("Zombie", "Bad boy") {
-    override val powerType: String = ""
-    override var healthPoints: Int = 200
+class Goblin(override val name: String, override val description: String,
+             override val powerType: String, override var healthPoints: Int) : Monster() {
 
     override val damageRoll: Int
         get() = super.damageRoll / 2
