@@ -14,16 +14,15 @@ internal class CertificateRequestTest {
     @BeforeEach
     fun setUp() {
         mockkObject(Scanner)
-        val defaultArrayBytes: ByteArray = byteArrayOf(111, 45, 1, 4)
-        every { Scanner.getScanData() } returns defaultArrayBytes
     }
 
     @ParameterizedTest
     @MethodSource("processParams")
-    fun process(hrEmployeeNumber: Long, certificateType: CertificateType) {
+    fun process(hrEmployeeNumber: Long, certificateType: CertificateType, data: ByteArray) {
 
         //given
         val certificateRequest = CertificateRequest(hrEmployeeNumber, certificateType)
+        every { Scanner.getScanData() } returns data
 
         // when
         val expected = Certificate(certificateRequest, hrEmployeeNumber, Scanner.getScanData())
@@ -36,9 +35,9 @@ internal class CertificateRequestTest {
     companion object {
         @JvmStatic
         fun processParams() = listOf(
-                Arguments.of(1L, CertificateType.NDFL),
-                Arguments.of(245555L, CertificateType.LABOUR_BOOK),
-                Arguments.of(24L, CertificateType.LABOUR_BOOK)
+                Arguments.of(1L, CertificateType.NDFL, byteArrayOf(111, 45, 1, 4)),
+                Arguments.of(245555L, CertificateType.LABOUR_BOOK, byteArrayOf()),
+                Arguments.of(24L, CertificateType.LABOUR_BOOK, byteArrayOf(11))
         )
     }
 
