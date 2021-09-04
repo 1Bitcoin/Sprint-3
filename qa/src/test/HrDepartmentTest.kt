@@ -23,8 +23,6 @@ internal class HrDepartmentTest {
     @MethodSource("receiveRequestWeekendDayExceptionTestParams")
     fun receiveRequestWeekendDayExceptionTest(currentDay: DayOfWeek) {
 
-        val certificateRequest = mockkClass(CertificateRequest::class)
-
         // given
         every { LocalDateTime.now(Clock.systemUTC()).dayOfWeek } returns currentDay
 
