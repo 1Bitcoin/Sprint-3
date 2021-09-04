@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
+import kotlin.random.Random
 
 internal class CertificateRequestTest {
     @BeforeEach
@@ -34,9 +35,9 @@ internal class CertificateRequestTest {
     companion object {
         @JvmStatic
         fun processParams() = listOf(
-                Arguments.of(1L, CertificateType.NDFL, byteArrayOf(111, 45, 1, 4)),
-                Arguments.of(245555L, CertificateType.LABOUR_BOOK, byteArrayOf()),
-                Arguments.of(24L, CertificateType.LABOUR_BOOK, byteArrayOf(11))
+                Arguments.of(1L, CertificateType.NDFL, Random.nextBytes(100)),
+                Arguments.of(245555L, CertificateType.LABOUR_BOOK, Random.nextBytes(100)),
+                Arguments.of(24L, CertificateType.LABOUR_BOOK, Random.nextBytes(100))
         )
     }
 

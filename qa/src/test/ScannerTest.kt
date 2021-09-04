@@ -11,8 +11,6 @@ import kotlin.random.Random
 import kotlin.test.assertEquals
 
 internal class ScannerTest {
-    private val byteArray = Random.nextBytes(100)
-
     @BeforeEach
     fun setUp() {
         mockkObject(Random)
@@ -31,7 +29,7 @@ internal class ScannerTest {
 
     @ParameterizedTest
     @MethodSource("getScanDataTestParams")
-    fun getScanDataTest(timeOut: Long) {
+    fun getScanDataTest(timeOut: Long, byteArray: ByteArray) {
 
         // given
         every { Random.nextLong(5000L, 15000L) } returns timeOut
@@ -50,8 +48,8 @@ internal class ScannerTest {
 
         @JvmStatic
         fun getScanDataTestParams() = listOf(
-                Arguments.of(5L),
-                Arguments.of(9999L)
+                Arguments.of(5L, Random.nextBytes(100)),
+                Arguments.of(9999L, Random.nextBytes(100))
         )
     }
 }
