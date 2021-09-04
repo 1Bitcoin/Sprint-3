@@ -1,3 +1,5 @@
+package ru.sber.qa
+
 import io.mockk.every
 import io.mockk.mockkObject
 import io.mockk.unmockkAll
@@ -8,10 +10,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
-import ru.sber.qa.Certificate
-import ru.sber.qa.CertificateRequest
-import ru.sber.qa.CertificateType
-import ru.sber.qa.Scanner
 import kotlin.random.Random
 
 internal class CertificateRequestTest {

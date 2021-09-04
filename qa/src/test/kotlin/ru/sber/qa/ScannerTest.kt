@@ -1,3 +1,5 @@
+package ru.sber.qa
+
 import io.mockk.every
 import io.mockk.mockkObject
 import io.mockk.unmockkAll
@@ -7,8 +9,6 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
-import ru.sber.qa.ScanTimeoutException
-import ru.sber.qa.Scanner
 import kotlin.random.Random
 import kotlin.test.assertEquals
 

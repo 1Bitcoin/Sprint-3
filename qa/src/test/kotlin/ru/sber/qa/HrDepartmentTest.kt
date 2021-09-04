@@ -1,3 +1,5 @@
+package ru.sber.qa
+
 import io.mockk.every
 import io.mockk.mockkClass
 import io.mockk.mockkStatic
@@ -8,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
-import ru.sber.qa.*
 import java.time.*
 
 
