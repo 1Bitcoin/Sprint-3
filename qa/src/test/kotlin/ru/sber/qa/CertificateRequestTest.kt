@@ -43,14 +43,6 @@ internal class CertificateRequestTest {
         )
     }
 
-    @Test
-    fun getEmployeeNumber() {
-    }
-
-    @Test
-    fun getCertificateType() {
-    }
-
     fun assertEqualsCertificate(excepted: Certificate, actual: Certificate) {
         Assertions.assertEquals(excepted.certificateRequest, actual.certificateRequest)
         Assertions.assertEquals(excepted.data, actual.data)
