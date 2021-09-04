@@ -3,6 +3,8 @@ package ru.sber.qa
 import io.mockk.every
 import io.mockk.mockkClass
 import io.mockk.mockkStatic
+import io.mockk.unmockkAll
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
@@ -106,5 +108,10 @@ internal class HrDepartmentTest {
                 Arguments.of(DayOfWeek.WEDNESDAY, CertificateType.NDFL, -1L),
                 Arguments.of(DayOfWeek.FRIDAY, CertificateType.NDFL, 45L)
         )
+    }
+
+    @AfterEach
+    fun tearDown() {
+        unmockkAll()
     }
 }

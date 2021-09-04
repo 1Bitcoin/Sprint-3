@@ -2,6 +2,8 @@ package ru.sber.qa
 
 import io.mockk.every
 import io.mockk.mockkObject
+import io.mockk.unmockkAll
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
@@ -51,5 +53,10 @@ internal class ScannerTest {
                 Arguments.of(5L, Random.nextBytes(100)),
                 Arguments.of(9999L, Random.nextBytes(100))
         )
+    }
+
+    @AfterEach
+    fun tearDown() {
+        unmockkAll()
     }
 }
