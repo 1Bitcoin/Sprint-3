@@ -40,7 +40,6 @@ class Grep {
                             }
                         }
             }
-
         } catch (exception: Exception) {
             println(exception.message)
         }
